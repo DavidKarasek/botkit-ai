@@ -1,8 +1,8 @@
 # botkit-ai
 
-# Middleware for botkit to integrate API.AI.
+Middleware for botkit to integrate API.AI.
 
-# Import the library and configure the basic settings.
+Import the library and configure the basic settings.
 
 var botkitai = require('botkit-ai')({
 	token: <API AI token, require>,
@@ -11,13 +11,13 @@ var botkitai = require('botkit-ai')({
 	unknownAction: <Label to be used when APIAI response has no action, default 'unknown'>
 });
 
-# errorText, defaultText, unknownAction are all optional and could also be handled in the bot listener.
+errorText, defaultText, unknownAction are all optional and could also be handled in the bot listener.
 
-# Set the middleware to use botkitai.
+Set the middleware to use botkitai.
 
 controller.middleware.receive.use(botkitai.receive);
 
-# now your bot is using the middleware! Your messages will now have a few new parameters on them.
+now your bot is using the middleware! Your messages will now have a few new parameters on them.
 
 controller.hears('.*', 'message_received', function (bot, message) {
 	bot.reply(message.speech); // message.speech has the response from API.AI
