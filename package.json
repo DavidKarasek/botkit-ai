@@ -16,5 +16,8 @@
     "botkit"
   ],
   "author": "dj karasek",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "apiai": "^2.0.5"
+  }
 }
