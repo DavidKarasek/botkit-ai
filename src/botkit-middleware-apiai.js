@@ -22,12 +22,17 @@ module.exports = function(config) {
                 if (result.speech === '') {
                     message.action = result.action || unknownAction;
                     message.speech = defaultText;
+                } else {
+                    message.action = result.action;
+                    message.speech = result.fulfillment.speech;
                 }
+                next();
             });
 
             request.on('error', function(err) {
                 message.action = 'error';
                 message.speech = errorText;
+                next();
             });
 
             request.end();
