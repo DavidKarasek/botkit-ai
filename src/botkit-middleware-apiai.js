@@ -19,7 +19,7 @@ module.exports = function(config) {
             var request = AI.textRequest(message.text);
             request.on('response', function(res) {
                 message.ai = res.result;
-                console.log('res: ', res.result);
+                //console.log('res: ', res.result);
                 next();
             });
 

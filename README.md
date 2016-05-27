@@ -19,14 +19,20 @@ controller.middleware.receive.use(botkitai.receive);
 
 now your bot is using the middleware! Your messages will now have a few new parameters on them.
 
-controller.hears('.*', 'message_received', function (bot, message) {
-	bot.reply(message.speech); // message.speech has the response from API.AI
-	
-	//  You could also override specific actions
-	//  if you so choose.                         
-	
-	if (message.action === 'smalltalk.confirmation') {
-		bot.reply("Actually, I don't agree at all.")
-	}
+Here is an example of what you will get attached to your message. It is found at message.ai
 
-});
+{ 
+	source: 'domains',
+	resolvedQuery: 'hello',
+	action: 'smalltalk.greetings',
+	parameters: 
+		{ 
+			simplified: 'hello' 
+		},
+	metadata: {},
+	fulfillment: 
+		{ 
+			speech: 'Good day!' 
+		},
+	score: 0
+}
