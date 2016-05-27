@@ -18,20 +18,14 @@ module.exports = function(config) {
         if (message.text) {
             var request = AI.textRequest(message.text);
             request.on('response', function(res) {
-                var result = res.result;
-                if (result.speech === '') {
-                    message.action = result.action || unknownAction;
-                    message.speech = defaultText;
-                } else {
-                    message.action = result.action;
-                    message.speech = result.fulfillment.speech;
-                }
+                message.ai = res.result;
+                console.log('res: ', res.result);
                 next();
             });
 
             request.on('error', function(err) {
-                message.action = 'error';
-                message.speech = errorText;
+                console.error('Error connecting with API.AI: ', err);
+                message.ai.error = err;
                 next();
             });
 
