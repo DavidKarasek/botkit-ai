@@ -4,12 +4,14 @@ Middleware for botkit to integrate API.AI.
 
 Import the library and configure the basic settings.
 
+```
 var botkitai = require('botkit-ai')({
 	token: <API AI token, require>,
 	errorText: <What you want to say if there is an API error, optional>,
 	defaultText: <What you want to see if there is no response, optional>,
 	unknownAction: <Label to be used when APIAI response has no action, default 'unknown'>
 });
+```
 
 errorText, defaultText, unknownAction are all optional and could also be handled in the bot listener.
 
@@ -21,6 +23,7 @@ now your bot is using the middleware! Your messages will now have a few new para
 
 Here is an example of what you will get attached to your message. It is found at message.ai
 
+```
 { 
 	source: 'domains',
 	resolvedQuery: 'hello',
@@ -36,3 +39,6 @@ Here is an example of what you will get attached to your message. It is found at
 		},
 	score: 0
 }
+```
+
+For suggestions on imporvements or to contribute checkout the git repo: [botkit-ai on GitHub](https://github.com/DavidKarasek/botkit-ai)
