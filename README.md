@@ -17,7 +17,7 @@ errorText, defaultText, unknownAction are all optional and could also be handled
 
 Set the middleware to use botkitai.
 
-controller.middleware.receive.use(botkitai.receive);
+`controller.middleware.receive.use(botkitai.receive);`
 
 now your bot is using the middleware! Your messages will now have a few new parameters on them.
 
